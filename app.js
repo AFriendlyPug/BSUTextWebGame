@@ -25,7 +25,7 @@ function showText(textNodeIndex) {
   textNode.options.forEach(option => {
     if (showOption(option)) {
       const button = document.createElement('button')
-      button.innerText = option.text
+      button.innerText = option.buttonText
       button.classList.add('btn')
       button.addEventListener('click', () => selectOption(option))
       optionButtons.appendChild(button)
@@ -74,22 +74,22 @@ const textNodes = [
     text:"Hello this is test node 1", //Situation text
     options: [ //Max of 4 options
       {
-        text: '1', //Button text
+        buttonText: '1', //Button text
         setState: {}, //Skill check or items
         nextText: 2 //Increment ID by 1 each time -1 will restart game
       },
       {
-        text: '2', //Button text
+        buttonText: '2', //Button text
         setState: {}, //Skill check or items
         nextText: 2 //Increment ID by 1 each time -1 will restart game
       },
       {
-        text: '3', //Button text
+        buttonText: '3', //Button text
         setState: {}, //Skill check or items
         nextText: 2 //Increment ID by 1 each time -1 will restart game
       },
       {
-        text: '4', //Button text
+        buttonText: '4', //Button text
         setState: {}, //Skill check or items
         nextText: 2 //Increment ID by 1 each time -1 will restart game
       },
@@ -100,22 +100,22 @@ const textNodes = [
     text:"Hello this is test node 2", //Situation text
     options: [ //Max of 4 options
       {
-        text: '1', //Button text
+        buttonText: '1', //Button text
         setState: {}, //Skill check or items
         nextText: 3 //Increment ID by 1 each time -1 will restart game
       },
       {
-        text: '2', //Button text
+        buttonText: '2', //Button text
         setState: {}, //Skill check or items
         nextText: 3 //Increment ID by 1 each time -1 will restart game
       },
       {
-        text: '3', //Button text
+        buttonText: '3', //Button text
         setState: {}, //Skill check or items
         nextText: 3 //Increment ID by 1 each time -1 will restart game
       },
       {
-        text: '4', //Button text
+        buttonText: '4', //Button text
         setState: {}, //Skill check or items
         nextText: 3 //Increment ID by 1 each time -1 will restart game
       },
@@ -126,22 +126,22 @@ const textNodes = [
     text:"Hello this is test node 3", //Situation text
     options: [ //Max of 4 options
       {
-        text: '1', //Button text
+        buttonText: '1', //Button text
         setState: {}, //Skill check or items
         nextText: 4 //Increment ID by 1 each time -1 will restart game
       },
       {
-        text: '2', //Button text
+        buttonText: '2', //Button text
         setState: {}, //Skill check or items
         nextText: 4 //Increment ID by 1 each time -1 will restart game
       },
       {
-        text: '3', //Button text
+        buttonText: '3', //Button text
         setState: {}, //Skill check or items
         nextText: 4 //Increment ID by 1 each time -1 will restart game
       },
       {
-        text: 'this button restarts you', //Button text
+        buttonText: 'this button restarts you', //Button text
         setState: {}, //Skill check or items
         nextText: -1 //Increment ID by 1 each time -1 will restart game
       },
