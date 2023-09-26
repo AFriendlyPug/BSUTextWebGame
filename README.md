@@ -2,15 +2,17 @@
 ### Text node template:
 
 ```
-id: , //Event UID
-text: "", //Situation text
-options: [ //Max of 4 options
-    {
-        buttonText: "", //Button text.
-        setState: {}, //Unused at the moment
-        nextText: //Indicates the next event it links to
-    }
-]
+{
+    id: , //Event UID
+    text: "", //Situation text
+    options: [ //Max of 4 options
+        {
+            buttonText: "", //Button text.
+            setState: {}, //Unused at the moment
+            nextText: //Indicates the next event it links to
+        }
+    ]
+}
 ```
 ### Variable breakdown
 `id:` requires a int is a unquie ID do not overlap IDs.<br/>
@@ -26,16 +28,16 @@ options: [ //Max of 4 options
     id: 1,
     text:"Hello this is test node 1",
     options: [
-    {
-        buttonText: '1',
-        setState: {},
-        nextText: 2
-    },
-    {
-        buttonText: '2',
-        setState: {},
-        nextText: 2
-    }
+        {
+            buttonText: '1',
+            setState: {},
+            nextText: 2
+        },
+        {
+            buttonText: '2',
+            setState: {},
+            nextText: 2
+        }
     ]
 },
 ```
