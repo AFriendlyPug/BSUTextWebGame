@@ -29,12 +29,12 @@
     text:"Hello this is test node 1",
     options: [
         {
-            buttonText: '1',
+            buttonText: 'this is button 1',
             setState: {},
             nextText: 2
         },
         {
-            buttonText: '2',
+            buttonText: 'this is button 2',
             setState: {},
             nextText: 2
         }
