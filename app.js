@@ -54,20 +54,6 @@ function selectOption(option) {
   showText(nextTextId)
 }
 
-/* Template
-{
-  id: , //Event ID
-  text: "", //Situation text
-  options: [ //Max of 4 options
-    {
-      text: "", //Button text
-      setState: {}, //Skill check or items
-      nextText: //Increment ID by 1 each time -1 will restart game
-    }
-  ]
-},
-*/
-
 const textNodes = [
   {
     id: 1, //Event ID
