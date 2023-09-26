@@ -18,7 +18,7 @@ options: [ //Max of 4 options
 `options:` requires an array and contains the buttons current max of 4 buttons.<br/>
 `buttonText:` requires a string and is used to display the text for the button of the current situtation.<br/>
 `setState:` Current unsued.<br/>
-`nextText` requries an int and is used to point towards the next event ID.<br/>
+`nextText:` requries an int and is used to point towards the next event ID.<br/>
 
 ### Example Text Node:
 ```
