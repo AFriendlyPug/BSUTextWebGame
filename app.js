@@ -1,13 +1,38 @@
 const textElement = document.getElementById('text')
 const optionButtons = document.getElementById('option-buttons')
+const pointContainer = document.getElementById('point-container')
 
 let state = {}
+
+let skillPoints = {
+  generalITKnowledge: 0,
+  cybersecurityKnowledge: 0,
+  codingSkills: 0,
+  reputation: -1,
+}
 
 function startGame() {
   // Reset the game state to an empty object.
   state = {}
   // Show the initial text node to start the game.
   showText(1)
+}
+
+function updateSkillPointsDisplay() {
+  const pointContainer = document.getElementById('point-container');
+  
+  // Clear the content of the div.
+  pointContainer.innerHTML = '';
+
+  // Iterate through the skill points object and display them.
+  for (const skill in skillPoints) {
+    if (skillPoints.hasOwnProperty(skill)) {
+      const skillElement = document.createElement('div');
+      skillElement.classList.add('skill');
+      skillElement.innerText = `${skill}: ${skillPoints[skill]}`;
+      pointContainer.appendChild(skillElement);
+    }
+  }
 }
 
 function showText(textNodeIndex) {
@@ -31,12 +56,18 @@ function showText(textNodeIndex) {
       optionButtons.appendChild(button)
     }
   })
+
+  // Update the skill points display when showing a new text node.
+  updateSkillPointsDisplay();
 }
 
 function showOption(option) {
   // Check if the option should be displayed.
-  // If there's no requiredState or the requiredState condition is met, the option is shown.
-  return option.requiredState == null || option.requiredState(state)
+  // If there's no requiredSkills or the requiredSkills condition is met, the option is shown.
+  return (
+    option.requiredSkills == null || 
+    checkSkillRequirements(option.requiredSkills)
+  );
 }
 
 function selectOption(option) {
@@ -50,8 +81,27 @@ function selectOption(option) {
   
   // Update the game state based on the selected option.
   state = Object.assign(state, option.setState)
+  
+  // Update the skill points based on the selected option.
+  for (const skill in option.setState) {
+    if (option.setState.hasOwnProperty(skill)) {
+      skillPoints[skill] += option.setState[skill];
+    }
+  }
+  
   // Show the next text node in the game.
   showText(nextTextId)
+}
+
+function checkSkillRequirements(requiredSkills) {
+  for (const skill in requiredSkills) {
+    if (requiredSkills.hasOwnProperty(skill)) {
+      if (skillPoints[skill] < requiredSkills[skill]) {
+        return false; // You don't meet the required skill points for this option.
+      }
+    }
+  }
+  return true; // You meet all the required skill points.
 }
 
 const textNodes = [
@@ -61,22 +111,17 @@ const textNodes = [
     options: [ //Max of 4 options
       {
         buttonText: '1', //Button text
-        setState: {}, //Skill check or items
-        nextText: 2 //Increment ID by 1 each time -1 will restart game
-      },
-      {
-        buttonText: '2', //Button text
-        setState: {}, //Skill check or items
-        nextText: 2 //Increment ID by 1 each time -1 will restart game
-      },
-      {
-        buttonText: '3', //Button text
-        setState: {}, //Skill check or items
-        nextText: 2 //Increment ID by 1 each time -1 will restart game
-      },
-      {
-        buttonText: '4', //Button text
-        setState: {}, //Skill check or items
+        setState: { //Skill check or items
+          generalITKnowledge: 1,
+          cybersecurityKnowledge: 1,
+          codingSkills: 2,
+          reputation: 0,
+        }, 
+        requiredSkills: { // Require 2 Coding skills to choose this option
+          generalITKnowledge: 0,
+          cybersecurityKnowledge: 0,
+          codingSkills: 0,
+        },
         nextText: 2 //Increment ID by 1 each time -1 will restart game
       },
     ]
@@ -87,49 +132,18 @@ const textNodes = [
     options: [ //Max of 4 options
       {
         buttonText: '1', //Button text
-        setState: {}, //Skill check or items
+        setState: { //Skill check or items
+          generalITKnowledge: 0,
+          cybersecurityKnowledge: 0,
+          codingSkills: 0,
+          reputation: 0,
+        }, 
+        requiredSkills: { // Require 2 Coding skills to choose this option
+          generalITKnowledge: 1,
+          cybersecurityKnowledge: 1,
+          codingSkills: 2, 
+        },
         nextText: 3 //Increment ID by 1 each time -1 will restart game
-      },
-      {
-        buttonText: '2', //Button text
-        setState: {}, //Skill check or items
-        nextText: 3 //Increment ID by 1 each time -1 will restart game
-      },
-      {
-        buttonText: '3', //Button text
-        setState: {}, //Skill check or items
-        nextText: 3 //Increment ID by 1 each time -1 will restart game
-      },
-      {
-        buttonText: '4', //Button text
-        setState: {}, //Skill check or items
-        nextText: 3 //Increment ID by 1 each time -1 will restart game
-      },
-    ]
-  },
-  {
-    id: 3, //Event ID
-    text:"Hello this is test node 3", //Situation text
-    options: [ //Max of 4 options
-      {
-        buttonText: '1', //Button text
-        setState: {}, //Skill check or items
-        nextText: 4 //Increment ID by 1 each time -1 will restart game
-      },
-      {
-        buttonText: '2', //Button text
-        setState: {}, //Skill check or items
-        nextText: 4 //Increment ID by 1 each time -1 will restart game
-      },
-      {
-        buttonText: '3', //Button text
-        setState: {}, //Skill check or items
-        nextText: 4 //Increment ID by 1 each time -1 will restart game
-      },
-      {
-        buttonText: 'this button restarts you', //Button text
-        setState: {}, //Skill check or items
-        nextText: -1 //Increment ID by 1 each time -1 will restart game
       },
     ]
   }, 
