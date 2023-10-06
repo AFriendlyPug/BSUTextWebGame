@@ -18,6 +18,11 @@ function startGame() {
   showText(1)
 }
 
+function randomDice() {
+  // Generate a random number between 1 and 6.
+  return Math.floor(Math.random() * 6) + 1;
+}
+
 function updateSkillPointsDisplay() {
   
   // Clear the content of the div.
@@ -40,6 +45,9 @@ function showText(textNodeIndex) {
   // Update the game's main text with the text from the selected node.
   textElement.innerHTML = textNode.text
   
+  const diceNumber = randomDice()
+  console.log(diceNumber)
+
   // Clear previously displayed buttons.
   while (optionButtons.firstChild) {
     optionButtons.removeChild(optionButtons.firstChild)
@@ -215,7 +223,6 @@ const textNodes = [
                 cybersecurityKnowledge: 0,
                 codingSkills: 0, 
             },
-            showDiceButton: false,
             nextText: 5
         },
     ]
