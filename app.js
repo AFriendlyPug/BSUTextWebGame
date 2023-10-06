@@ -5,9 +5,9 @@ const pointContainer = document.getElementById('point-container')
 let state = {}
 
 let skillPoints = {
-  generalITKnowledge: 0,
-  cybersecurityKnowledge: 0,
-  codingSkills: 0,
+  generalITKnowledge: 1,
+  cybersecurityKnowledge: 1,
+  codingSkills: 1,
   reputation: -1,
 }
 
@@ -19,7 +19,6 @@ function startGame() {
 }
 
 function updateSkillPointsDisplay() {
-  const pointContainer = document.getElementById('point-container');
   
   // Clear the content of the div.
   pointContainer.innerHTML = '';
@@ -107,20 +106,24 @@ function checkSkillRequirements(requiredSkills) {
 const textNodes = [
   {
     id: 1, //Event ID
-    text:"Hello this is test node 1", //Situation text
+    text:`Big Grid is responsible for the section of the grid that supplies power to Gloucestershire, UK<br/><br/>
+
+    You are a student on work placement with cyber security team for Big Grid<br/><br/>
+    
+    During your computer degree you have learnt a lot. Divide 4 skill points between the following:<br/>
+      General IT knowledge: starts at 1<br/>
+      Cyber Security knowledge: starts at 1<br/>
+      Coding skills: starts at 1<br/><br/>
+    
+    Your reputation starts at -1 (you are an intern student)<br/><br/>
+    
+    You need a 6 sided dice`, //Situation text
     options: [ //Max of 4 options
       {
-        buttonText: '1', //Button text
+        buttonText: 'Next', //Button text
         setState: { //Skill check or items
-          generalITKnowledge: 1,
-          cybersecurityKnowledge: 1,
-          codingSkills: 2,
-          reputation: 0,
         }, 
         requiredSkills: { // Require 2 Coding skills to choose this option
-          generalITKnowledge: 0,
-          cybersecurityKnowledge: 0,
-          codingSkills: 0,
         },
         nextText: 2 //Increment ID by 1 each time -1 will restart game
       },
@@ -128,25 +131,140 @@ const textNodes = [
   },
   {
     id: 2, //Event ID
-    text:"Hello this is test node 2", //Situation text
+    text:`Empty, due to a Covid outbreak most of the office team are self isolating, however you are alright as the experience team leader Sam is in the office, along with several other older IT staff<br/><br/>
+    
+    Phone rings<br/><br/>
+
+    Sam takes the call.<br/><br/>
+
+    He looks very worried and walks across to you<br/><br/>
+
+    His cat is ill and he needs to take it to the vet<br/><br/>
+
+    He reassures you that the other two staff in the office will be able to help you<br/><br/>
+    
+    `, //Situation text
     options: [ //Max of 4 options
       {
-        buttonText: '1', //Button text
+        buttonText: "Do you call Sam on his work mobile to let him know and ask for advice?", //Button text
         setState: { //Skill check or items
-          generalITKnowledge: 0,
-          cybersecurityKnowledge: 0,
-          codingSkills: 0,
-          reputation: 0,
+          reputation: -1,
         }, 
         requiredSkills: { // Require 2 Coding skills to choose this option
-          generalITKnowledge: 1,
-          cybersecurityKnowledge: 1,
-          codingSkills: 2, 
         },
         nextText: 3 //Increment ID by 1 each time -1 will restart game
       },
+      {
+        buttonText: "Or do you wait for more information?", //Button text
+        setState: { //Skill check or items
+          reputation: 0,
+        }, 
+        requiredSkills: { // Require 2 Coding skills to choose this option
+        },
+        nextText: 4 //Increment ID by 1 each time -1 will restart game
+      },
     ]
-  }, 
+  },
+  {
+    id: 3,
+    text:`you attempt to call Sam, his phone goes to voicemail<br/><br/>
+    
+    The other two staff in office snigger at your over reaction and your reputation falls.<br/><br/>
+
+    -1 on reputation.`,
+    options: [
+        {
+            buttonText: 'Next',
+            setState: {
+                generalITKnowledge: 0,
+                cybersecurityKnowledge: 0,
+                codingSkills: 0,
+                reputation: 0
+            }, 
+            requiredSkills: {
+                generalITKnowledge: 0,
+                cybersecurityKnowledge: 0,
+                codingSkills: 0, 
+            },
+            nextText: 4
+        },
+    ]
+  },
+  {
+    id: 4,
+    text:`Ransomware attack in progress!<br/><br/>
+    
+    System admin call you back- identified spike in traffic = ransomware attack in progress. Malware encrypting officer servers. System admin working frantically<br/><br/>
+    
+    Turn to 2 other staff in office and ask for advice. “experienced staff on placement”, accounting and other debt recovery team. (cross training practise of Big Grid). “know nothing about cyber”<br/><br/>
+    
+    Ring HR and ask contact Sam on personal mobile number, help!.<br/><br/>
+    
+    Ring back in 5 mins and cannot get him on phone, but received an email to say he has contacted an outside consultant to come and assist you.`,
+    options: [
+        {
+            buttonText: 'Next',
+            setState: {
+                generalITKnowledge: 0,
+                cybersecurityKnowledge: 0,
+                codingSkills: 0,
+                reputation: 0
+            }, 
+            requiredSkills: {
+                generalITKnowledge: 0,
+                cybersecurityKnowledge: 0,
+                codingSkills: 0, 
+            },
+            showDiceButton: false,
+            nextText: 5
+        },
+    ]
+  },
+  {
+    id: 5,
+    text:`Security ring 15 minutes later - consultant is at reception. They say he is very anxious to get started as time is critical.`,
+    options: [
+        {
+            buttonText: 'Do you tell security to let him in?',
+            setState: {
+                generalITKnowledge: 0,
+                cybersecurityKnowledge: 0,
+                codingSkills: 0,
+                reputation: 0
+            }, 
+            requiredSkills: {
+                generalITKnowledge: 0,
+                cybersecurityKnowledge: 0,
+                codingSkills: 0, 
+            },
+            nextText: 6
+        },
+        {
+          buttonText: 'Do you tell security to check his id?',
+          setState: {
+              generalITKnowledge: 0,
+              cybersecurityKnowledge: 0,
+              codingSkills: 0,
+              reputation: 0
+          }, 
+          requiredSkills: {
+              generalITKnowledge: 0,
+              cybersecurityKnowledge: 0,
+              codingSkills: 0, 
+          },
+          nextText: 6
+      },
+      {
+        buttonText: 'Do you consult the security policy to see what you should do next?',
+        setState: {
+            cybersecurityKnowledge: 1,
+        }, 
+        requiredSkills: {
+        },
+        nextText: 6
+    },
+    ]
+  },
 ]
 
 startGame()
