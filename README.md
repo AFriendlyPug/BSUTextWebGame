@@ -1,5 +1,9 @@
 # BSUTextWebGame
-## Text node:
+## GitHub Page
+
+<https://afriendlypug.github.io/BSUTextWebGame/>
+
+## Text node
 
 ### Variable breakdown:
 `id:` requires a int is a unquie ID do not overlap IDs.<br/>
