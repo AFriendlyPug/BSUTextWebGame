@@ -8,6 +8,7 @@
 ### Variable breakdown:
 `id:` requires a int is a unquie ID do not overlap IDs.<br/>
 `text:` requires a string and is used to show the current situation text.<br/>
+`endGame:` requires a bool that requires true or false, used to end the game on this node, will display results.<br/>
 `options:` requires an array and contains the buttons current max of 4 buttons.<br/>
 `buttonText:` requires a string and is used to display the text for the button of the current situtation.<br/>
 `setState:` used to add points to the four atributes `generalITKnowledge`, `cybersecurityKnowledge`, `codingSkills`, and `reputation`, the int after the skill name is the amount of points added.<br/>
@@ -19,6 +20,7 @@
 {
     id: ,
     text:"",
+    endGame: ,
     options: [
         {
             buttonText: '',
@@ -44,6 +46,7 @@
 {
     id: 1,
     text:"Hello this is test node 1",
+    endGame: false,
     options: [
         {
             buttonText: '1',
