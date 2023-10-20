@@ -1,11 +1,38 @@
 # BSUTextWebGame
+
+## Content
+
+- [GitHub Page](#github-page)<br/>
+- [Features](#features)<br/>
+    - [Implemented Features](#implemented-features)<br/>
+    - [Missing Features](#missing-features)<br/>
+- [Text Node](#text-node)<br/>
+    - [Variable Breakdown](#variable-breakdown)<br/>
+    - [Template](#template)<br/>
+    - [Example Text Node](#example-text-node)
+- [Skill Points](#skill-points)
+
 ## GitHub Page
 
 <https://afriendlypug.github.io/BSUTextWebGame/>
 
-## Text node
+## Features
 
-### Variable breakdown:
+### Implemented Features
+- Allocate points to skills
+- Choose between different actions as the game progresses
+- Add/remove skill points based on decisions
+- Present results at the end of the game
+- Branching paths based on the user’s decisions 
+- Basic support for video and audio clips
+
+### Missing Features
+- Dice
+- Limited-time decisions
+
+## Text Node
+
+### Variable Breakdown:
 `id:` requires a int is a unquie ID do not overlap IDs.<br/>
 `text:` requires a string and is used to show the current situation text.<br/>
 `endGame:` requires a bool that requires true or false, used to end the game on this node, will display results.<br/>
@@ -67,7 +94,7 @@
 }
 ```
 
-## Skill points
+## Skill Points
 ```
 let skillPoints = {
     generalITKnowledge: 0,
