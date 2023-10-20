@@ -438,6 +438,52 @@ const textNodes = [
   },
   {
     id: 9,
+    text:`<iframe width="560" height="315" src="https://www.youtube.com/embed/2URQxcXsR3I?si=EP1_bv1WCxY6rjvk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`,
+    endGame: false,
+    options: [
+        {
+            buttonText: 'this is a button',
+            diceRequired: false,
+            setState: {
+                generalITKnowledge: 0,
+                cybersecurityKnowledge: 0,
+                codingSkills: 0,
+                reputation: 0
+            }, 
+            requiredSkills: {
+                generalITKnowledge: 1,
+                cybersecurityKnowledge: 1,
+                codingSkills: 1, 
+            },
+            nextText: 10
+        },
+    ]
+  },
+  {
+    id: 10,
+    text:`<audio controls><source src="horse.ogg" type="audio/ogg"><source src="horse.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>`,
+    endGame: false,
+    options: [
+        {
+            buttonText: 'this is a button',
+            diceRequired: false,
+            setState: {
+                generalITKnowledge: 0,
+                cybersecurityKnowledge: 0,
+                codingSkills: 0,
+                reputation: 0
+            }, 
+            requiredSkills: {
+                generalITKnowledge: 1,
+                cybersecurityKnowledge: 1,
+                codingSkills: 1, 
+            },
+            nextText: 11
+        },
+    ]
+  },
+  {
+    id: 11,
     text: "",
     endGame: true,
     options: [
