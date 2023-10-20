@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 .dice-btn {
     display: none;
 }
@@ -8,4 +10,60 @@
 
 .restart-btn {
     display: none;
+}
+
+/* Reset default margin and padding for the page */
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #232936;
+}
+
+/* Center the container vertically and horizontally */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* 100% of viewport height for vertical centering */
+    font-family: 'Lato', sans-serif; /* Set the font to Lato */
+    margin-left: 20%;
+    margin-right: 20%;
+    background: #293140;
+    color: white;
+    box-shadow: black 0px 0px 10px;
+}
+
+#point-container{
+    align-self: center;
+    margin-left: 20px;
+}
+
+/* Style the text */
+#text {
+    font-size: 24px; /* Adjust the font size as needed */
+    padding: 20px;
+}
+
+/* Center the single button */
+#option-buttons  {
+    display: flex;
+    gap: 10px; /* Add a 10px gap between the button and other content (if any) */
+    margin: 20px;
+}
+
+/* Style the button */
+.btn, .restart-btn {
+    padding: 10px 20px; /* Adjust padding as needed */
+    text-align: center;
+    background-color: #007bff; /* Change the background color as needed */
+    color: #fff; /* Change the text color as needed */
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Add hover effect for the button (optional) */
+.btn:hover {
+    background-color: #0056b3; /* Change the hover background color as needed */
 }
